@@ -1,0 +1,47 @@
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+
+  //all except the last-child
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  @include clearfix;
+
+  //select all the clases that starts with col-
+  [class^="col-"] {
+    float: left;
+    &:not(:last-child) {
+      margin-right: $gutter-horitzontal;
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horitzontal}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horitzontal}) / 3);
+  }
+  .col-2-of-3 {
+    width: calc(
+      2 * ((100% - 2 * #{$gutter-horitzontal}) / 3) + #{$gutter-horitzontal}
+    );
+  }
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$gutter-horitzontal}) / 4);
+  }
+
+  .col-2-of-4 {
+    width: calc(
+      2 * ((100% - 3 * #{$gutter-horitzontal}) / 4) + #{$gutter-horitzontal}
+    );
+  }
+
+  .col-3-of-4 {
+    width: calc(
+      3 * ((100% - 3 * #{$gutter-horitzontal}) / 4) + 2 * #{$gutter-horitzontal}
+    );
+  }
+}
